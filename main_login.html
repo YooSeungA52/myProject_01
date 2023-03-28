@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <link rel="stylesheet" href="../myProject_01/background.css">
+  <style>
+    #container {
+      width: 1000px; height: 800px;
+      border: 1px solid black;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row; flex-wrap: nowrap;
+      align-items: center; justify-content: space-evenly;
+    }
+    .choice-box {
+      width: 300px; height: 50px;
+      border-bottom: 1px solid black;
+      display: inline-block;
+      text-align: center;
+      /* padding-top: 20px; */
+    }
+    input {
+      width: 100%;
+    }
+    /* login-box 크기 조정하기 */
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="login-box">
+      <div class="choice-box">로그인</div>
+      <p>아이디</p>
+      <input type="text" placeholder="아이디 입력">
+      <p>비밀번호</p>
+      <input type="password" placeholder="비밀번호 입력">
+      <!-- <div class="choice-box">회원가입</div> -->
+    </div>
+    <!-- <div class="signUp-box">회원가입</div> -->
+
+  </div>
+</body>
+</html>
