@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 페이지</title>
+  <link rel="stylesheet" href="../myProject_01/background.css">
+  <style>
+    .container {
+      width: 1000px; height: 800px;
+      border: 1px solid black;
+      margin: 30px auto; padding: 50px;
+      /* display: flex;
+      align-items: center;
+      justify-content: space-evenly; */
+    }
+    .box-login {
+      width: 300px; height: 50px;
+      border: 1px solid blue;
+      /* border-bottom: 1px solid black; */
+      text-align: center;
+      margin: 0 auto;
+      /* padding-top: 20px; */
+    }
+    .input-login {
+      width: 500px; height: 40px;
+      font-size: 1rem;
+      margin: 10px 0px; /* 상하, 좌우 */
+      padding-left: 5px;
+    }
+    .box-main {
+      width: 100%; height: 100%;
+      border: 1px solid red;
+      padding: 50px;
+    }
+    .signUp-link {
+      color: rgb(128, 128, 128);
+    }
+    .box-input {
+      width: 100%;
+      border: 1px solid purple;
+      padding: 50px 150px;
+    }
+    .button-login {
+      width: 300px; height: 50px;
+      font-size: 1.2rem; font-weight: bolder;
+    }
+    .signUp-link {
+      text-align: center;
+    }
+    /* box 다 없애고 margin padding 사용하지 않고 정렬하기 */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="logo_duck2.png">
+    <div class="box-main">
+      <div class="box-login">로그인</div>
+      <div class="box-input">
+        <div>
+          <p>아이디</p>
+          <input class="input-login" type="text" placeholder="아이디 입력">
+          <p>비밀번호</p>
+          <input class="input-login" type="password" placeholder="비밀번호 입력">
+        </div>
+        <input type="checkbox">아이디 저장
+        <br>
+        <button class="button-login">로그인하기</button>
+      </div>
+      <a href="회원가입페이지링크"><p class="signUp-link">아직 회원이 아니신가요?</p></a>
+
+
+    </div>
+  </div>
+</body>
+</html>
