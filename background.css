@@ -9,7 +9,7 @@
 .company { margin-right: 30px; }
 .box-search {
   width: 500px; height: 50px;
-  border: 1px solid black;
+  border: 1px solid black; border-radius: 30px;
   margin: 0px 10px;
   display: flex;
   justify-content: space-evenly;
@@ -20,6 +20,7 @@
   font-size: 1rem;
   padding-left: 10px;
   border-style: none;
+  background-color: #ffffff00;
 }
 .box-icon {
   padding: 5px 10px;
@@ -27,10 +28,25 @@
   align-items: center;
   justify-content: right;
 }
+.fa-user:hover, .fa-bars:hover {
+  cursor: pointer;
+}
+/* .header-icon-button {
+  background-color: #ffffff00;
+  border-style: none;
+} */
+/* .header-icon-button:hover {
+  cursor: pointer;
+} */
+/* .box-info {
+  width: 200px; height: 200px;
+  background-color: orange;
+  float: left;
+} */
 
 #menuBar {
   width: 100%; height: 40px;
-  background-color: #FFCC00; /*FFC93C*/
+  background-color: #FFC93C;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,13 +58,27 @@
   border-style: none;
   background-color: #ffffff00;
 }
+.button-menuBar:hover { cursor: pointer; }
+/* .menuBar-hidden {
+  display: block;
+  position: absolute;
+  top: 120px;
+  overflow: hidden;
+} */
 .li-line {
   width: 1px; height: 80%;
   background-color: #ffeeac;
   margin: auto;
 }
 
+input.checkbox:checked + span {
+  color:gray;
+  font-style: italic;
+}
 ul { height: 100%; list-style: none; display: flex; }
 li { margin: 0px 30px; }
 a { color: black; text-decoration: none; }
 i { margin: 5px; padding: 5px; font-size: 1.7rem; }
+/* table, th, td { border: 1px solid black; border-collapse: collapse; } */
+.color-green { color: green; }
+.color-blue { color: blue; }

@@ -9,25 +9,76 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../myProject_01/background.css">
-</head>
+  <link rel="stylesheet" href="background.css">
+  <style>
+    .schedule {
+      display: flex;
+      justify-content: center;
+    }
+    table { border: 3px solid black; border-collapse: collapse; }
+    th, td { border: 1px solid black; }
+    .schedule-title{
+      margin: 5px 0px;
+      display: flex;
+      justify-content: space-evenly;
+    }
 
+    .box-board {
+      display: flex;
+      justify-content: space-evenly; }
+    .notice, .teamBoard {
+      width: 400px; height: 250px;
+      border: 3px solid black;
+      border-radius: 30px;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .notice > ul, .teamBoard > ul {
+      flex-direction: column;
+      width: 100%; height: 100%;
+    }
+    .notice > ul > li, .teamBoard > ul > li {
+      margin-top: 5px;
+    }
+    .li-line-bottom {
+      width: 90%; height: 1px;
+      background-color: gray;
+      margin: 5px auto;
+    }
+    .notice > a > h2, .teamBoard > a > h2 {
+      padding: 10px 0px;
+      border-bottom: 3px solid black;
+      background-color: #FFC93C;
+      border-top-right-radius: 27px;
+      border-top-left-radius: 27px;
+    }
+    .fa-ellipsis-vertical {
+      color: gray;
+      font-size: 1rem;
+    }
+  </style>
+</head>
 <body>
   <div class="container">
     <div id="header">
-      <img class="logo" src="logo_duck2.png">
+      <a href="main.html"><img class="logo" src="logo_duck2.png"></a>
       <img class="company" src="http://www.human.or.kr/images/h_logo.png">
       <div class="box-search">
         <input class="input-search" type="text" placeholder="메뉴를 검색하세요."><i class="fa-brands fa-sistrix"></i>
       </div>
       <div class="box-icon">
+        <!-- <div><button class="header-icon-button" onclick="header_icon_button_toggle()"><i class="fa-solid fa-user"></i></button></div> -->
         <div><i class="fa-solid fa-user"></i></div>
         <div><i class="fa-solid fa-bars"></i></div>
       </div>
     </div>
     <div id="menuBar">
       <ul>
+        <li><a href="각페이지링크"><button class="button-menuBar">공지사항</button></a></li>
+        <div class="li-line"></div>
         <li><a href="각페이지링크"><button class="button-menuBar">이메일</button></a></li>
+        <div class="li-line"></div>
+        <li><a href="각페이지링크"><button class="button-menuBar">일정관리</button></a></li>
         <div class="li-line"></div>
         <li><a href="각페이지링크"><button class="button-menuBar">인사관리</button></a></li>
         <div class="li-line"></div>
@@ -36,10 +87,90 @@
         <li><a href="각페이지링크"><button class="button-menuBar">급여관리</button></a></li>
         <div class="li-line"></div>
         <li><a href="각페이지링크"><button class="button-menuBar">전자결재</button></a></li>
+        <!-- <div class="menuBar-hidden">
+          <ul>
+            <li>11111111</li>
+            <li>22222222</li>
+            <li>33333333</li>
+            <li>44444444</li>
+            <li>55555555</li>
+            <li>66666666</li>
+          </ul>
+        </div> -->
       </ul>
     </div>
+    <div class="schedule">
+      <table width="450" height="250">
+        <caption>
+          <h2>SCHEDULE 을 넣을지 캘린더를 넣을지</h2>
+          <div class="schedule-title">
+            <span><span class="color-green">■</span> - ○○○팀 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
+          </div>
+        </caption>
+        <colgroup>
+          <col width="17%">
+          <col width="83%">
+        </colgroup>
+        <tr>
+          <th scope="col">3월 29일</th>
+          <td scope="col">　• header, menuBar 완성</td>
+        </tr>
+        <tr>
+          <th>3월 30일</th>
+          <td>　• signUp, login 페이지 완성
+            <br>　• main 페이지 작업 중
+          </td>
+        </tr>
+        <tr>
+          <th>3월 31일</th>
+          <td>　• main 페이지 완성을 목표로</td>
+        </tr>
+        <tr>
+          <th>4월 1일</th>
+          <td>　• 전자결재 페이지 작업 예정</td>
+        </tr>
+        <tr>
+          <th>메모</th>
+          <td>　<input class="checkbox" type="checkbox"><span> 다이어그램 보완 필요</span>
+            <br>　<input class="checkbox" type="checkbox"><span> 노션 업데이트</span>
+            <br>　<input class="checkbox" type="checkbox"><span> 로고에 글자 추가</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="box-board">
+      <div class="notice">
+        <a href="공지사항페이지링크"><h2>공지사항</h2></a>
+        <ul>
+          <li>공지사항1</li>
+          <div class="li-line-bottom"></div>
+          <li>공지사항2</li>
+          <div class="li-line-bottom"></div>
+          <li>공지사항3</li>
+          <div class="li-line-bottom"></div>
+          <li>공지사항4</li>
+          <div class="li-line-bottom"></div>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </ul>
+      </div>
+      <div class="teamBoard">
+        <a href="업무게시판페이지링크"><h2>업무 게시판</h2></a>
+        <ul>
+          <li>업무 게시글1</li>
+          <div class="li-line-bottom"></div>
+          <li>업무 게시글2</li>
+          <div class="li-line-bottom"></div>
+          <li>업무 게시글3</li>
+          <div class="li-line-bottom"></div>
+          <li>업무 게시글4</li>
+          <div class="li-line-bottom"></div>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
+  <script src="background.js"></script>
 </body>
-
 </html>
