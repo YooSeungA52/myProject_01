@@ -1,11 +1,15 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
+.container {
+  width: 1200px; height: 100%;
+  margin: 0 auto;
+}
 #header {
   width: 100%; height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.logo { width: 110px; height: 50px; }
+.logo { width: 120px; height: 60px; }
 .company { margin-right: 30px; }
 .box-search {
   width: 500px; height: 50px;
@@ -31,18 +35,27 @@
 .fa-user:hover, .fa-bars:hover {
   cursor: pointer;
 }
-/* .header-icon-button {
-  background-color: #ffffff00;
-  border-style: none;
-} */
-/* .header-icon-button:hover {
-  cursor: pointer;
-} */
-/* .box-info {
-  width: 200px; height: 200px;
-  background-color: orange;
-  float: left;
-} */
+
+.header-hidden {
+  width: 150px;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  border: 3px solid black;
+  display: none; position: absolute;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.li-header:hover .header-hidden {
+  display: block;
+}
+.header-hidden > p {
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+}
+.header-hidden > p:hover {
+  background-color: lightgray;
+}
 
 #menuBar {
   width: 100%; height: 40px;
@@ -51,32 +64,64 @@
   justify-content: center;
   align-items: center;
 }
+#menuBar > ul {
+  height: 100%;
+}
 .button-menuBar {
   height: 100%;
+  /* min-width: 100px; */
   font-size: 1rem;
   font-weight: bold;
   border-style: none;
   background-color: #ffffff00;
 }
 .button-menuBar:hover { cursor: pointer; }
-/* .menuBar-hidden {
-  display: block;
-  position: absolute;
-  top: 120px;
-  overflow: hidden;
-} */
+.li-menuBar { margin: 0px 30px; }
 .li-line {
   width: 1px; height: 80%;
   background-color: #ffeeac;
   margin: auto;
+}
+.li-line-bottom {
+  width: 80%; height: 1px;
+  background-color: #ffeeac;
+  margin: auto;
+}
+.li-line-bottom { /* main에도 있음 */
+  width: 90%; height: 1px;
+  background-color: gray;
+  margin: 5px auto;
+}
+
+.menuBar-hidden {
+  width: 150px;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  border: 3px solid black;
+  border-top: none;
+  display: none; position: absolute;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.li-menuBar:hover .menuBar-hidden {
+  display: block;
+}
+.menuBar-hidden > p {
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.menuBar-hidden > p:hover {
+  background-color: lightgray;
 }
 
 input.checkbox:checked + span {
   color:gray;
   font-style: italic;
 }
-ul { height: 100%; list-style: none; display: flex; }
-li { margin: 0px 30px; }
+ul { list-style: none; display: flex; }
 a { color: black; text-decoration: none; }
 i { margin: 5px; padding: 5px; font-size: 1.7rem; }
 /* table, th, td { border: 1px solid black; border-collapse: collapse; } */

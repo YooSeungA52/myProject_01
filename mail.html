@@ -4,59 +4,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>메인 페이지</title>
+  <title>메일 페이지</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="background.css">
   <style>
-    .schedule {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
+    .mail-body {
+      width: 100%; height: 750px;
+      background-color: lightgray;
     }
-    table { border: 3px solid black; border-collapse: collapse; }
-    th, td { border: 1px solid black; }
-    .schedule-title{
-      margin: 5px 0px;
-      display: flex;
-      justify-content: space-evenly;
+    .mail-menu {
+      width: 20%; height: 750px;
+      background-color: #fff1cc;
     }
-
-    .box-board {
-      display: flex;
-      justify-content: space-evenly; }
-    .notice, .teamBoard {
-      width: 400px; height: 250px;
-      border: 3px solid black;
-      border-radius: 30px;
-      margin-top: 30px;
-      text-align: center;
+    .mail-menu-top {
+      /* width: 20%; height: 20%; */
+      background-color: orangered;
     }
-    .notice > ul, .teamBoard > ul {
+    .mail-menu-main {
+      background-color:chocolate;
+    }
+    .mail-menu-main > ul {
+      font-weight: bold;
+      display: flex;
       flex-direction: column;
+      align-items: center;
+    }
+    .mail-menu-main > ul > li {
       width: 100%;
     }
-    .notice > ul > li, .teamBoard > ul > li {
-      margin-top: 5px;
-    }
-    /* .notice-li-line-bottom, .teamBoard-li-line-bottom */
-    /* .li-line-bottom */
-    .notice > a > h2, .teamBoard > a > h2 {
-      padding: 10px 0px;
-      border-bottom: 3px solid black;
+    .mail-menu-main > ul > li:hover {
       background-color: #FFC93C;
-      border-top-right-radius: 27px;
-      border-top-left-radius: 27px;
-    }
-    .fa-ellipsis-vertical {
-      color: gray;
-      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div claslogos="container">
     <div id="header">
       <a href="main.html"><img class="logo" src="logo_duck.png"></a>
       <img class="company" src="http://www.human.or.kr/images/h_logo.png">
@@ -168,76 +152,34 @@
         </li>
       </ul>
     </div>
-    <div class="schedule">
-      <table width="450" height="250">
-        <caption>
-          <h2>SCHEDULE 을 넣을지 캘린더를 넣을지</h2>
-          <div class="schedule-title">
-            <span><span class="color-green">■</span> - ○○○팀 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
-          </div>
-        </caption>
-        <colgroup>
-          <col width="17%">
-          <col width="83%">
-        </colgroup>
-        <tr>
-          <th scope="col">3월 29일</th>
-          <td scope="col">　• header, menuBar 완성</td>
-        </tr>
-        <tr>
-          <th>3월 30일</th>
-          <td>　• signUp, login 페이지 완성
-            <br>　• main 페이지 작업 중
-          </td>
-        </tr>
-        <tr>
-          <th>3월 31일</th>
-          <td>　• main 페이지 완성을 목표로</td>
-        </tr>
-        <tr>
-          <th>4월 1일</th>
-          <td>　• 전자결재 페이지 작업 예정</td>
-        </tr>
-        <tr>
-          <th>메모</th>
-          <td>　<input class="checkbox" type="checkbox"><span> 다이어그램 보완 필요</span>
-            <br>　<input class="checkbox" type="checkbox"><span> 노션 업데이트</span>
-            <br>　<input class="checkbox" type="checkbox"><span> 로고에 글자 추가</span>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="box-board">
-      <div class="notice">
-        <a href="#"><h2>공지사항</h2></a>
-        <ul>
-          <li>공지사항1</li>
-          <div class="li-line-bottom"></div>
-          <li>공지사항2</li>
-          <div class="li-line-bottom"></div>
-          <li>공지사항3</li>
-          <div class="li-line-bottom"></div>
-          <li>공지사항4</li>
-          <div class="li-line-bottom"></div>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </ul>
-      </div>
-      <div class="teamBoard">
-        <a href="#"><h2>업무 게시판</h2></a>
-        <ul>
-          <li>업무 게시글1</li>
-          <div class="li-line-bottom"></div>
-          <li>업무 게시글2</li>
-          <div class="li-line-bottom"></div>
-          <li>업무 게시글3</li>
-          <div class="li-line-bottom"></div>
-          <li>업무 게시글4</li>
-          <div class="li-line-bottom"></div>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </ul>
+    <div class="mail-body">
+      <div class="mail-menu">
+        <div class="mail-menu-top">
+          <ul>
+            <li>
+              <button>메일쓰기</button><button>내게쓰기</button>
+            </li>
+          </ul>
+        </div>
+        <div class="mail-menu-main">
+          <ul>
+            <li><a href="#">전체메일</a></li>
+            <div class="li-line-bottom"></div>
+            <li><a href="#">받은메일함</a></li>
+            <div class="li-line-bottom"></div>
+            <li><a href="#">보낸메일함</a></li>
+            <div class="li-line-bottom"></div>
+            <li><a href="#">임시보관함</a></li>
+            <div class="li-line-bottom"></div>
+            <li><a href="#">내게쓴메일함</a></li>
+            <div class="li-line-bottom"></div>
+            <li><a href="#">주소록</a></li>
+            <div class="li-line-bottom"></div>
+            <li><a href="#">휴지통</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-
   </div>
 </body>
 </html>
