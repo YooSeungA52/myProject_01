@@ -16,7 +16,7 @@
       text-align: center;
     }
     .logo { width: 200px; height: 100px; margin: 20px; }
-    h1 { margin-bottom: 30px; }
+    h1 { margin-bottom: 20px; }
     .box-info {
       text-align: left;
     }
@@ -26,18 +26,21 @@
       margin: 10px 0px;
       padding-left: 5px;
     }
-    .button-login {
+    .box-login {
       width: 300px; height: 50px;
       font-size: 1.2rem; font-weight: bolder;
       border: 3px solid black; border-radius: 30px;
       background-color: #FFC93C;
-      margin: 30px 0px;
+      color: black;
+      margin: 30px 10px 8px 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .link-signUp {
-      font-weight: bold;
-    }
+    .link-signUp { font-weight: bold; }
     a { color: navy; text-decoration: none; }
-    button:hover { cursor: pointer; }
+    .color-gray { color: black; }
+
     </style>
 </head>
 <body>
@@ -58,11 +61,11 @@
           <br>
           <input type="checkbox"> 아이디 저장
         </div>
-        <a href="main.html"><button class="button-login">로그인하기</button></a>
+        <a href="main.html"><div class="box-login">로그인하기</div></a>
       </form>
-      <a href="signUp.html">
-        <p class="link-signUp">아직 회원이 아니신가요?</p>
-      </a>
+      <a href="#"><p class="color-gray">아이디 / 비밀번호 찾기</p></a>
+      <br>
+      <a href="signUp.html"><p class="link-signUp">아직 회원이 아니신가요?</p></a>
     </div>
   </div>
 </body>
