@@ -10,7 +10,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="background.css">
   <style>
-    .schedule {
+    .box-calendar {
       display: flex;
       justify-content: center;
       margin-top: 30px;
@@ -21,6 +21,10 @@
       margin: 5px 0px;
       display: flex;
       justify-content: space-evenly;
+    }
+    input.checkbox:checked + span {
+      color:gray;
+      font-style: italic;
     }
 
     .box-board {
@@ -68,21 +72,26 @@
           <li class="li-header">
             <i class="fa-solid fa-user"></i>
             <div class="header-hidden">
-              <p>사원정보</p>
+              <div class="employee-info">
+                <p class="employee-name">오오리 <span class="employee-idNumber">00001</span></p>
+                <p class="employee-department">○○부 <span class="employee-extensionNumber">(5252)</span></p>
+              </div>
               <div class="li-line-bottom"></div>
-              <p>출퇴근 확인</p>
+              <p><a href="#">출퇴근 확인</a></p>
               <div class="li-line-bottom"></div>
-              <p>로그아웃</p>
+              <p><a href="#">자리비움</a></p>
+              <div class="li-line-bottom"></div>
+              <p><a href="login.html">로그아웃</a></p>
             </div>
           </li>
           <li class="li-header">
             <i class="fa-solid fa-bars"></i>
             <div class="header-hidden">
-              <p>일단 메뉴를</p>
+              <p><a href="#">고객센터</a></p>
               <div class="li-line-bottom"></div>
-              <p>만들었는데</p>
+              <p><a href="#">FAQ</a></p>
               <div class="li-line-bottom"></div>
-              <p>무엇을 넣을까</p>
+              <p><a href="#">상담요청</a></p>
             </div>
           </li>
         </ul>
@@ -98,6 +107,17 @@
             <p>공지사항1</p>
           </div> -->
         </li>
+        <div class="li-line"></div>
+        <li class="li-menuBar">
+        <a href="#"><button class="button-menuBar">인사관리</button></a>
+        <div class="menuBar-hidden">
+          <p><a href="#">조직도</a></p>
+          <div class="li-line-bottom"></div>
+          <p><a href="#">사원 정보</a></p>
+          <div class="li-line-bottom"></div>
+          <p><a href="#">증명서</a></p>
+        </div>
+      </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="mail.html"><button class="button-menuBar">메일</button></a>
@@ -126,54 +146,50 @@
             <p>일정 공유</p>
           </div> -->
         </li>
-          <div class="li-line"></div>
-          <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">인사관리</button></a>
-          <div class="menuBar-hidden">
-            <p>조직도</p>
-            <div class="li-line-bottom"></div>
-            <p>사원 정보</p>
-            <div class="li-line-bottom"></div>
-            <p>증명서</p>
-          </div>
-        </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">근태관리</button></a>
           <div class="menuBar-hidden">
-            <p>출퇴근 확인</p>
+            <p><a href="#">근태 현황</a></p>
             <div class="li-line-bottom"></div>
-            <p>근로 일정 관리</p>
-            <div class="li-line-bottom"></div>
-            <p>근태 신청</p>
+            <p><a href="#">근태 신청</a></p>
           </div>
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">급여관리</button></a>
           <div class="menuBar-hidden">
-            <p>급여계산</p>
+            <p><a href="#">급여계산</a></p>
             <div class="li-line-bottom"></div>
-            <p>급여명세서</p>
+            <p><a href="#">급여명세서</a></p>
           </div>
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">전자결재</button></a>
           <div class="menuBar-hidden">
-            <p>결재사항</p>
+            <p><a href="#">결재사항</a></p>
             <div class="li-line-bottom"></div>
-            <p>결재작성</p>
+            <p><a href="#">결재작성</a></p>
           </div>
+        </li>
+          <div class="li-line"></div>
+          <li class="li-menuBar">
+            <a href="#"><button class="button-menuBar">게시판</button></a>
+            <div class="menuBar-hidden">
+              <p><a href="#">게시판</a></p>
+              <div class="li-line-bottom"></div>
+              <p><a href="#">자료실</a></p>
+            </div>
         </li>
       </ul>
     </div>
-    <div class="schedule">
-      <table width="450" height="250">
+    <!-- <div class="box-calendar">
+      <table class="calendar" width="450" height="250">
         <caption>
           <h2>SCHEDULE 을 넣을지 캘린더를 넣을지</h2>
           <div class="schedule-title">
-            <span><span class="color-green">■</span> - ○○○팀 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
+            <span><span class="color-green">■</span> - ○○부 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
           </div>
         </caption>
         <colgroup>
@@ -206,7 +222,47 @@
           </td>
         </tr>
       </table>
-    </div>
+      <table width="450" height="250">
+        <caption>
+          <h2>SCHEDULE 을 넣을지 캘린더를 넣을지</h2>
+          <div class="schedule-title">
+            <span><span class="color-green">■</span> - ○○부 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
+          </div>
+        </caption>
+        <colgroup>
+          <col width="17%">
+          <col width="83%">
+        </colgroup>
+        <tr>
+          <th scope="col">3월 29일</th>
+          <td scope="col">　• header, menuBar 완성</td>
+        </tr>
+        <tr>
+          <th>3월 30일</th>
+          <td>　• signUp, login 페이지 완성
+            <br>　• main 페이지 작업 중
+          </td>
+        </tr>
+        <tr>
+          <th>3월 31일</th>
+          <td>　• main 페이지 완성을 목표로</td>
+        </tr>
+        <tr>
+          <th>4월 1일</th>
+          <td>　• 전자결재 페이지 작업 예정</td>
+        </tr>
+        <tr>
+          <th>메모</th>
+          <td>　<input class="checkbox" type="checkbox"><span> 다이어그램 보완 필요</span>
+            <br>　<input class="checkbox" type="checkbox"><span> 노션 업데이트</span>
+            <br>　<input class="checkbox" type="checkbox"><span> 로고에 글자 추가</span>
+          </td>
+        </tr>
+      </table>
+    </div> -->
+    
+    <div class="testArea" style="width: 1000px; height: 500px; border: 3px solid black; margin: 30px auto;"><!--완성하고 여백 비교 후 box-board margin-top 없애도 될 듯--></div>
+
     <div class="box-board">
       <div class="notice">
         <a href="#"><h2>공지사항</h2></a>

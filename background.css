@@ -19,6 +19,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.box-search > i:hover { cursor: pointer; }
 .input-search {
   width: 400px; height: 80%;
   font-size: 1rem;
@@ -32,16 +33,15 @@
   align-items: center;
   justify-content: right;
 }
-.fa-user:hover, .fa-bars:hover {
-  cursor: pointer;
-}
+.box-icon > ul > li > i:hover { cursor: pointer; }
 
 .header-hidden {
   width: 150px;
   background-color: #FFFFFF;
   font-weight: bold;
   border: 3px solid black;
-  display: none; position: absolute;
+  display: none;
+  position: absolute;
   border-radius: 10px;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
 }
@@ -50,11 +50,20 @@
 }
 .header-hidden > p {
   padding: 10px;
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
   border-radius: 7px;
 }
 .header-hidden > p:hover {
-  background-color: lightgray;
+  background-color: rgb(230, 230, 230);
+}
+.header-hidden > .employee-info { padding: 10px; }
+.header-hidden > .employee-info > p > .employee-idNumber {
+  color: gray;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+.header-hidden > .employee-info > p > .employee-extensionNumber {
+  font-weight: normal;
 }
 
 #menuBar {
@@ -114,12 +123,7 @@
   border-bottom-left-radius: 7px;
 }
 .menuBar-hidden > p:hover {
-  background-color: lightgray;
-}
-
-input.checkbox:checked + span {
-  color:gray;
-  font-style: italic;
+  background-color: rgb(230, 230, 230);
 }
 
 .title-line-bottom {

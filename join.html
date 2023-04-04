@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 페이지</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .container { width: 100%; height: 100%; }
+    #main {
+      width: 700px; height: 915px;
+      border: 3px solid black; border-radius: 30px;
+      margin: 50px auto;
+      padding: 0px 60px;
+      text-align: center;
+    }
+    .logo { width: 200px; height: 100px; margin: 10px; }
+    h1 { margin-bottom: 15px; }
+    .color-red { color: red; }
+    .must {
+      margin-bottom: 15px;
+    }
+    h3 { margin-top: 5px; margin-bottom: 20px;}
+    .box-info {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .area1, .area2, .area3 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .input-infoA {
+      width: 220px; height: 40px;
+      font-size: 1rem;
+      margin: 10px 0px;
+      margin-bottom: 20px;
+      padding-left: 5px;
+    }
+    .input-infoB {
+      width: 485px; height: 40px;
+      font-size: 1rem;
+      margin: 10px 0px;
+      margin-bottom: 20px;
+      padding-left: 5px;
+    }
+    .box-join {
+      width: 300px; height: 50px;
+      font-size: 1.2rem; font-weight: bolder;
+      border: 3px solid black; border-radius: 30px;
+      background-color: #FFC93C;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    a > .box-join {
+      margin: 30px auto;
+    }
+    a { text-decoration: none; }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div id="main">
+      <img class="logo" src="logo_duck.png">
+      <h1>회원가입</h1>
+      <p class="must">별표(<span class="color-red">*</span>)는 필수 입력란 입니다.</p>
+      <form>
+        <div class="box-info">
+          <h3>신청자 정보</h3>
+          <div class="area1">
+            <label>
+              <span class="color-red">*</span>이름<br>
+              <input class="input-infoA" type="text" placeholder="이름 입력">
+            </label>
+            <label>
+              <span class="color-red">*</span>연락처<br>
+              <input class="input-infoA" type="text" placeholder="연락처 입력">
+            </label>
+            <label>
+              이메일<br>
+              <input class="input-infoB" type="text" placeholder="이메일 입력">
+            </label>
+          </div>
+          <h3>가입회사 정보</h3>
+          <div class="area2">
+            <label>
+              <span class="color-red">*</span>회사명<br>
+              <input class="input-infoA" type="text" placeholder="회사명 입력">
+            </label>
+            <label>
+              <span class="color-red">*</span>대표자<br>
+              <input class="input-infoA" type="text" placeholder="대표자 입력">
+            </label>
+          </div>
+          <div class="area3">
+          <label>
+            <span class="color-red">*</span>사업자등록번호<br>
+              <input class="input-infoA" type="text" placeholder="사업자등록번호 입력">
+            </label>
+            <label>
+              업태/종목<br>
+              <input class="input-infoA" type="text" placeholder="업태/종목 입력">
+            </label>
+            <label>
+              <span class="color-red">*</span>주소<br>
+              <input class="input-infoB" type="text" placeholder="주소 입력">
+            </label>
+            </div>
+          </div>
+          <input type="checkbox"> 이용약관 및 정보수집 동의
+        <a href="main.html">
+          <div class="box-join">가입하기</div>
+        </a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

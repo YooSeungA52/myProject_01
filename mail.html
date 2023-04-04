@@ -12,7 +12,7 @@
   <style>
     .mail-container {
       width: 1200px; height: 750px;
-      /* background-color: lightgray; */
+      background-color: #FFFFFF;
       display: flex;
     }
     .mail-menu {
@@ -40,7 +40,7 @@
       align-items: center;
       justify-content: space-evenly;
     }
-    .counting {
+    .count-notRead {
       color:navy;
       font-size: 1.5rem;
       /* font-weight: bold; */
@@ -54,7 +54,7 @@
       font-size: 1.5rem;
     }
     .blank-clip {
-      color: white;
+      color: #FFFFFF;
     }
     .mail-menu-main > ul {
       font-weight: bold;
@@ -98,6 +98,7 @@
     .search-area > i {
       padding: 0;
     }
+    .search-area > i:hover { cursor: pointer; }
     .input-mail-search {
       width: 150px; height: 30px;
       font-size: 1rem;
@@ -145,9 +146,9 @@
       display: flex;
       align-items: baseline;
     }
-    .mail-list > ul > li > div > span:hover {
+    .mail-list > ul > li:hover { cursor: pointer; }
+    .mail-list > ul > li > div:hover span {
       border-bottom:1px solid black;
-      cursor: pointer;
     }
     .mail-list > ul > li > input {
       margin-right: 7px;
@@ -170,7 +171,6 @@
     .mail-date {
       margin-left: 10px;
     }
-    i:hover { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -186,21 +186,26 @@
           <li class="li-header">
             <i class="fa-solid fa-user"></i>
             <div class="header-hidden">
-              <p>사원정보</p>
+              <div class="employee-info">
+                <p class="employee-name">오오리 <span class="employee-idNumber">00001</span></p>
+                <p class="employee-department">○○부 <span class="employee-extensionNumber">(5252)</span></p>
+              </div>
               <div class="li-line-bottom"></div>
-              <p>출퇴근 확인</p>
+              <p><a href="#">출퇴근 확인</a></p>
               <div class="li-line-bottom"></div>
-              <p>로그아웃</p>
+              <p><a href="#">자리비움</a></p>
+              <div class="li-line-bottom"></div>
+              <p><a href="login.html">로그아웃</a></p>
             </div>
           </li>
           <li class="li-header">
             <i class="fa-solid fa-bars"></i>
             <div class="header-hidden">
-              <p>일단 메뉴를</p>
+              <p><a href="#">고객센터</a></p>
               <div class="li-line-bottom"></div>
-              <p>만들었는데</p>
+              <p><a href="#">FAQ</a></p>
               <div class="li-line-bottom"></div>
-              <p>무엇을 넣을까</p>
+              <p><a href="#">상담요청</a></p>
             </div>
           </li>
         </ul>
@@ -210,7 +215,23 @@
       <ul>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">공지사항</button></a>
+          <!-- <div class="menuBar-hidden">
+            <p>공지사항1</p>
+            <div class="li-line-bottom"></div>
+            <p>공지사항1</p>
+          </div> -->
         </li>
+        <div class="li-line"></div>
+        <li class="li-menuBar">
+        <a href="#"><button class="button-menuBar">인사관리</button></a>
+        <div class="menuBar-hidden">
+          <p><a href="#">조직도</a></p>
+          <div class="li-line-bottom"></div>
+          <p><a href="#">사원 정보</a></p>
+          <div class="li-line-bottom"></div>
+          <p><a href="#">증명서</a></p>
+        </div>
+      </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="mail.html"><button class="button-menuBar">메일</button></a>
@@ -233,46 +254,47 @@
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">일정관리</button></a>
-        </li>
-          <div class="li-line"></div>
-          <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">인사관리</button></a>
-          <div class="menuBar-hidden">
-            <p>조직도</p>
+          <!-- <div class="menuBar-hidden">
+            <p>일정 추가</p>
             <div class="li-line-bottom"></div>
-            <p>사원 정보</p>
-            <div class="li-line-bottom"></div>
-            <p>증명서</p>
-          </div>
+            <p>일정 공유</p>
+          </div> -->
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">근태관리</button></a>
           <div class="menuBar-hidden">
-            <p>출퇴근 확인</p>
+            <p><a href="#">근태 현황</a></p>
             <div class="li-line-bottom"></div>
-            <p>근로 일정 관리</p>
-            <div class="li-line-bottom"></div>
-            <p>근태 신청</p>
+            <p><a href="#">근태 신청</a></p>
           </div>
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">급여관리</button></a>
           <div class="menuBar-hidden">
-            <p>급여계산</p>
+            <p><a href="#">급여계산</a></p>
             <div class="li-line-bottom"></div>
-            <p>급여명세서</p>
+            <p><a href="#">급여명세서</a></p>
           </div>
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">전자결재</button></a>
           <div class="menuBar-hidden">
-            <p>결재사항</p>
+            <p><a href="#">결재사항</a></p>
             <div class="li-line-bottom"></div>
-            <p>결재작성</p>
+            <p><a href="#">결재작성</a></p>
           </div>
+        </li>
+          <div class="li-line"></div>
+          <li class="li-menuBar">
+            <a href="#"><button class="button-menuBar">게시판</button></a>
+            <div class="menuBar-hidden">
+              <p><a href="#">게시판</a></p>
+              <div class="li-line-bottom"></div>
+              <p><a href="#">자료실</a></p>
+            </div>
         </li>
       </ul>
     </div>
@@ -289,7 +311,7 @@
             <ul>
               <a href="#">
                 <li>
-                  <p class="counting">1</p>안읽음
+                  <p class="count-notRead"></p>안읽음
                 </li>
               </a>
               <a href="#">
@@ -347,37 +369,37 @@
           <div class="mail-list">
             <ul>
               <li>
-                <input type="checkbox"><i class="fa-regular fa-star"></i><i class="fa-regular fa-envelope-open"></i><i
+                <input type="checkbox"><i class="icon-bookmark_1 fa-regular fa-star" onclick="bookmark_1()"></i><i class="icon-read_1 fa-regular fa-envelope-open" onclick="read_1()"></i><i
                   class="fa-solid fa-paperclip"></i>
                 <div class="mail-from">
-                  <span class="mail-from">WINA</span>
+                  <span class="mail-from-text_1">WINA</span>
                 </div>
                 <div class="mail-title">
-                  <span class="mail-title">[WINA] 가입을 환영합니다.</span>
+                  <span class="mail-title-text_1">[WINA] 가입을 환영합니다.</span>
                 </div>
                 <span class="mail-date">03-31 10:49</span>
               </li>
               <div class="main-line-bottom"></div>
               <li>
-                <input type="checkbox"><i class="fa-solid fa-star"></i><i class="fa-regular fa-envelope-open"></i><i
+                <input type="checkbox"><i class="icon-bookmark_2 fa-regular fa-solid fa-star" onclick="bookmark_2()"></i><i class="icon-read_2 fa-regular fa-envelope-open" onclick="read_2()"></i><i
                   class="fa-solid fa-paperclip blank-clip"></i>
                 <div class="mail-from">
-                  <span class="mail-from">휴먼교육센터</span>
+                  <span class="mail-from-text_2">휴먼교육센터</span>
                 </div>
                 <div class="mail-title">
-                  <span class="mail-title">2023-04-03 14:40 4차 TEST 있습니다.</span>
+                  <span class="mail-title-text_2">2023-04-03 14:40 4차 TEST 있습니다.</span>
                 </div>
                 <span class="mail-date">04-02 14:30</span>
               </li>
               <div class="main-line-bottom"></div>
               <li>
-                <input type="checkbox"><i class="fa-regular fa-star"></i><i class="fa-solid fa-envelope"></i><i
+                <input type="checkbox"><i class="icon-bookmark_3 fa-regular fa-star" onclick="bookmark_3()"></i><i class="icon-read_3 fa-solid fa-regular fa-envelope-open fa-envelope" onclick="read_3()"></i><i
                   class="fa-solid fa-paperclip"></i>
                 <div class="mail-from">
-                  <span class="mail-from-text notRead">신용권</span>
+                  <span class="mail-from-text_3 notRead">신용권</span>
                 </div>
                 <div class="mail-title">
-                  <span class="mail-title-text notRead">이것이 자바다!</span>
+                  <span class="mail-title-text_3 notRead">이것이 자바다!</span>
                 </div>
                 <span class="mail-date">04-03 09:24</span>
               </li>
@@ -389,17 +411,62 @@
   </div>
 
   <script>
-    // const impt = document.querySelector('i');
-    // // let star = false;
-    // impt.addEventListener('click', function(){
-    //   consloe.log('snffma')
-    //   // if(false) {
-    //   //   impt.classList.remove('fa-regular');
-    //   //   impt.classList.add('fa-solid');
-    //   //   star = true;
-    //   // }
-    // });
 
+    // const notReadCnt = document.querySelector('.count-notRead');
+    // let nRCnt = 0;
+    // // let nR;
+    // if('icon-read_1')
+    // nRCnt++;
+    // (function count_notRead(){
+    //   notReadCnt.textContent = (0 + nRCnt);
+    // }) ();
+
+    
+    function bookmark_1(){
+      document.querySelector('.icon-bookmark_1').classList.toggle('fa-solid');
+    };
+    function bookmark_2(){
+      document.querySelector('.icon-bookmark_2').classList.toggle('fa-solid');
+    };
+    function bookmark_3(){
+      document.querySelector('.icon-bookmark_3').classList.toggle('fa-solid');
+    };
+
+    function read_1(){
+      document.querySelector('.icon-read_1').classList.toggle('fa-solid');
+      document.querySelector('.icon-read_1').classList.toggle('fa-envelope');
+      document.querySelector('.mail-from-text_1').classList.toggle('notRead');
+      document.querySelector('.mail-title-text_1').classList.toggle('notRead');
+    };
+    function read_2(){
+      document.querySelector('.icon-read_2').classList.toggle('fa-solid');
+      document.querySelector('.icon-read_2').classList.toggle('fa-envelope');
+      document.querySelector('.mail-from-text_2').classList.toggle('notRead');
+      document.querySelector('.mail-title-text_2').classList.toggle('notRead');
+    };
+    function read_3(){
+      document.querySelector('.icon-read_3').classList.toggle('fa-solid');
+      document.querySelector('.icon-read_3').classList.toggle('fa-envelope');
+      document.querySelector('.mail-from-text_3').classList.toggle('notRead');
+      document.querySelector('.mail-title-text_3').classList.toggle('notRead');
+    };
+
+    
+    // const impt = document.querySelector('.icon-important');
+    // let star = false;
+    // impt.addEventListener('click', function(){
+    //   console.log('북마크 아이콘 클릭')
+
+    //   if(star == false) {
+    //     impt.classList.remove('fa-regular');
+    //     impt.classList.add('fa-solid');
+    //     star = true;
+    //   } else if( star == true) {
+    //     impt.classList.remove('fa-solid');
+    //     impt.classList.add('fa-regular');
+    //     star = false;
+    //   }
+    // });
 
   </script>
 </body>

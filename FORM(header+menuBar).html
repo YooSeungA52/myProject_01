@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>form</title>
+  <title>메인 페이지</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,21 +25,26 @@
           <li class="li-header">
             <i class="fa-solid fa-user"></i>
             <div class="header-hidden">
-              <p>사원정보</p>
+              <div class="employee-info">
+                <p class="employee-name">오오리 <span class="employee-idNumber">00001</span></p>
+                <p class="employee-department">○○부 <span class="employee-extensionNumber">(5252)</span></p>
+              </div>
               <div class="li-line-bottom"></div>
-              <p>출퇴근 확인</p>
+              <p><a href="#">출퇴근 확인</a></p>
               <div class="li-line-bottom"></div>
-              <p>로그아웃</p>
+              <p><a href="#">자리비움</a></p>
+              <div class="li-line-bottom"></div>
+              <p><a href="login.html">로그아웃</a></p>
             </div>
           </li>
           <li class="li-header">
             <i class="fa-solid fa-bars"></i>
             <div class="header-hidden">
-              <p>일단 메뉴를</p>
+              <p><a href="#">고객센터</a></p>
               <div class="li-line-bottom"></div>
-              <p>만들었는데</p>
+              <p><a href="#">FAQ</a></p>
               <div class="li-line-bottom"></div>
-              <p>무엇을 넣을까</p>
+              <p><a href="#">상담요청</a></p>
             </div>
           </li>
         </ul>
@@ -49,7 +54,23 @@
       <ul>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">공지사항</button></a>
+          <!-- <div class="menuBar-hidden">
+            <p>공지사항1</p>
+            <div class="li-line-bottom"></div>
+            <p>공지사항1</p>
+          </div> -->
         </li>
+        <div class="li-line"></div>
+        <li class="li-menuBar">
+        <a href="#"><button class="button-menuBar">인사관리</button></a>
+        <div class="menuBar-hidden">
+          <p><a href="#">조직도</a></p>
+          <div class="li-line-bottom"></div>
+          <p><a href="#">사원 정보</a></p>
+          <div class="li-line-bottom"></div>
+          <p><a href="#">증명서</a></p>
+        </div>
+      </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="mail.html"><button class="button-menuBar">메일</button></a>
@@ -72,51 +93,50 @@
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">일정관리</button></a>
-        </li>
-          <div class="li-line"></div>
-          <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">인사관리</button></a>
-          <div class="menuBar-hidden">
-            <p>조직도</p>
+          <!-- <div class="menuBar-hidden">
+            <p>일정 추가</p>
             <div class="li-line-bottom"></div>
-            <p>사원 정보</p>
-            <div class="li-line-bottom"></div>
-            <p>증명서</p>
-          </div>
+            <p>일정 공유</p>
+          </div> -->
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">근태관리</button></a>
           <div class="menuBar-hidden">
-            <p>출퇴근 확인</p>
+            <p><a href="#">근태 현황</a></p>
             <div class="li-line-bottom"></div>
-            <p>근로 일정 관리</p>
-            <div class="li-line-bottom"></div>
-            <p>근태 신청</p>
+            <p><a href="#">근태 신청</a></p>
           </div>
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">급여관리</button></a>
           <div class="menuBar-hidden">
-            <p>급여계산</p>
+            <p><a href="#">급여계산</a></p>
             <div class="li-line-bottom"></div>
-            <p>급여명세서</p>
+            <p><a href="#">급여명세서</a></p>
           </div>
         </li>
         <div class="li-line"></div>
         <li class="li-menuBar">
           <a href="#"><button class="button-menuBar">전자결재</button></a>
           <div class="menuBar-hidden">
-            <p>결재사항</p>
+            <p><a href="#">결재사항</a></p>
             <div class="li-line-bottom"></div>
-            <p>결재작성</p>
+            <p><a href="#">결재작성</a></p>
           </div>
+        </li>
+          <div class="li-line"></div>
+          <li class="li-menuBar">
+            <a href="#"><button class="button-menuBar">게시판</button></a>
+            <div class="menuBar-hidden">
+              <p><a href="#">게시판</a></p>
+              <div class="li-line-bottom"></div>
+              <p><a href="#">자료실</a></p>
+            </div>
         </li>
       </ul>
     </div>
-    
-    
 
   </div>
 </body>
