@@ -16,7 +16,7 @@
       display: flex;
     }
     .mail-menu {
-      width: 240px; height: 750px;
+      width: 220px; height: 750px;
       background-color: #fff7e0;
     }
     .mail-menu-top > ul {
@@ -32,9 +32,10 @@
       font-size: 1rem; font-weight: bold;
     }
     button:hover { cursor: pointer; }
-    /* .mail-menu-main { } */
     .mail-quick-menu {
-      margin: 0px 0px 15px 0px;
+      margin: 0px 0px 10px 0px;
+      /* padding-bottom: 15px; */
+      /* border-bottom: 2px solid black; */
     }
     .mail-quick-menu > ul {
       align-items: center;
@@ -67,9 +68,10 @@
       padding-left: 15px;
     }
     .mail-menu-main > ul > li:hover {
-      width: 90%;
-      background-color: #FFC93C;
-      border-radius: 30px;
+      width: 100%;
+      background-color: #FFD15C;
+      border-radius: 10px;
+      cursor: pointer;
     }
     .li-line-bottom {
       margin: 3px;
@@ -77,6 +79,7 @@
 
     .mail-main-container {
       padding: 10px;
+      padding-bottom: 0px;
       width: 100%;
     }
     .mail-main-container > .box-header {
@@ -138,6 +141,10 @@
       background-color: lightgray;
       margin: 5px auto;
     }
+    .mail-list-container {
+      width: 100%; height: 590px;
+      overflow-y : scroll;
+    }
     .mail-list > ul {
       padding: 0px 10px;
       flex-direction: column-reverse;
@@ -157,11 +164,11 @@
       font-size: 1rem;
     }
     .mail-list > ul > li > .mail-from {
-      width: 150px;
+      width: 130px;
       margin-left: 5px;
     }
     .mail-list > ul > li > .mail-title {
-      width: 540px;
+      width: 544px;
       margin: 0px 5px;
     }
     .notRead {
@@ -171,6 +178,36 @@
     .mail-date {
       margin-left: 10px;
     }
+
+    .mail-page {
+      border-top: 1px solid lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mail-page > i {
+      margin: 5px; padding: 5px;
+      font-size: 1.3rem;
+    }
+    .mail-page > i:hover { cursor: pointer; }
+    .mail-page > ol {
+      width: 200px;
+      padding: 0px 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .mail-page > ol > li > button {
+      width: 30px; height: 30px;
+      background-color: #ffffff00;
+      font-size: 1rem;
+      border-style: none;
+    }
+    .mail-page > ol > li > button.selected {
+      border: 1px solid black;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    ol { list-style: none; }
   </style>
 </head>
 <body>
@@ -311,7 +348,7 @@
             <ul>
               <a href="#">
                 <li>
-                  <p class="count-notRead"></p>안읽음
+                  <p class="count-notRead">0</p>안읽음
                 </li>
               </a>
               <a href="#">
@@ -366,61 +403,65 @@
             </ul>
           </div>
           <div class="main-line-bottom"></div>
-          <div class="mail-list">
-            <ul>
-              <li>
-                <input type="checkbox"><i class="icon-bookmark_1 fa-regular fa-star" onclick="bookmark_1()"></i><i class="icon-read_1 fa-regular fa-envelope-open" onclick="read_1()"></i><i
-                  class="fa-solid fa-paperclip"></i>
-                <div class="mail-from">
-                  <span class="mail-from-text_1">WINA</span>
-                </div>
-                <div class="mail-title">
-                  <span class="mail-title-text_1">[WINA] 가입을 환영합니다.</span>
-                </div>
-                <span class="mail-date">03-31 10:49</span>
-              </li>
-              <div class="main-line-bottom"></div>
-              <li>
-                <input type="checkbox"><i class="icon-bookmark_2 fa-regular fa-solid fa-star" onclick="bookmark_2()"></i><i class="icon-read_2 fa-regular fa-envelope-open" onclick="read_2()"></i><i
-                  class="fa-solid fa-paperclip blank-clip"></i>
-                <div class="mail-from">
-                  <span class="mail-from-text_2">휴먼교육센터</span>
-                </div>
-                <div class="mail-title">
-                  <span class="mail-title-text_2">2023-04-03 14:40 4차 TEST 있습니다.</span>
-                </div>
-                <span class="mail-date">04-02 14:30</span>
-              </li>
-              <div class="main-line-bottom"></div>
-              <li>
-                <input type="checkbox"><i class="icon-bookmark_3 fa-regular fa-star" onclick="bookmark_3()"></i><i class="icon-read_3 fa-solid fa-regular fa-envelope-open fa-envelope" onclick="read_3()"></i><i
-                  class="fa-solid fa-paperclip"></i>
-                <div class="mail-from">
-                  <span class="mail-from-text_3 notRead">신용권</span>
-                </div>
-                <div class="mail-title">
-                  <span class="mail-title-text_3 notRead">이것이 자바다!</span>
-                </div>
-                <span class="mail-date">04-03 09:24</span>
-              </li>
-            </ul>
+          <div class="mail-list-container">
+            <div class="mail-list">
+              <ul>
+                <li>
+                  <input type="checkbox"><i class="icon-bookmark_1 fa-regular fa-star" onclick="bookmark_1()"></i><i
+                    class="icon-read_1 fa-regular fa-envelope-open" onclick="read_1()"></i><i class="fa-solid fa-paperclip"></i>
+                  <div class="mail-from">
+                    <span class="mail-from-text_1">WINA</span>
+                  </div>
+                  <div class="mail-title">
+                    <span class="mail-title-text_1">[WINA] 가입을 환영합니다.</span>
+                  </div>
+                  <span class="mail-date">03-31 10:49</span>
+                </li>
+                <div class="main-line-bottom"></div>
+                <li>
+                  <input type="checkbox"><i class="icon-bookmark_2 fa-regular fa-solid fa-star" onclick="bookmark_2()"></i><i
+                    class="icon-read_2 fa-regular fa-envelope-open" onclick="read_2()"></i><i
+                    class="fa-solid fa-paperclip blank-clip"></i>
+                  <div class="mail-from">
+                    <span class="mail-from-text_2">휴먼교육센터</span>
+                  </div>
+                  <div class="mail-title">
+                    <span class="mail-title-text_2">2023-04-03 14:40 4차 TEST 있습니다.</span>
+                  </div>
+                  <span class="mail-date">04-02 14:30</span>
+                </li>
+                <div class="main-line-bottom"></div>
+                <li>
+                  <input type="checkbox"><i class="icon-bookmark_3 fa-regular fa-star" onclick="bookmark_3()"></i><i
+                    class="icon-read_3 fa-solid fa-regular fa-envelope-open fa-envelope" onclick="read_3()"></i><i
+                    class="fa-solid fa-paperclip"></i>
+                  <div class="mail-from">
+                    <span class="mail-from-text_3 notRead">신용권</span>
+                  </div>
+                  <div class="mail-title">
+                    <span class="mail-title-text_3 notRead">이것이 자바다!</span>
+                  </div>
+                  <span class="mail-date">04-03 09:24</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mail-page">
+            <i class="fa-solid fa-angles-left"></i><i class="fa-solid fa-angle-left"></i>
+            <ol>
+              <li><button class="selected">1</button></li>
+              <li><button>2</button></li>
+              <li><button>3</button></li>
+              <li><button>4</button></li>
+              <li><button>5</button></li>
+            </ol>
+            <i class="fa-solid fa-angle-right"></i><i class="fa-solid fa-angles-right"></i>
           </div>
         </div>
-      </div>
     </div>
   </div>
 
   <script>
-
-    // const notReadCnt = document.querySelector('.count-notRead');
-    // let nRCnt = 0;
-    // // let nR;
-    // if('icon-read_1')
-    // nRCnt++;
-    // (function count_notRead(){
-    //   notReadCnt.textContent = (0 + nRCnt);
-    // }) ();
-
     
     function bookmark_1(){
       document.querySelector('.icon-bookmark_1').classList.toggle('fa-solid');
@@ -450,23 +491,48 @@
       document.querySelector('.mail-from-text_3').classList.toggle('notRead');
       document.querySelector('.mail-title-text_3').classList.toggle('notRead');
     };
-
     
-    // const impt = document.querySelector('.icon-important');
-    // let star = false;
-    // impt.addEventListener('click', function(){
-    //   console.log('북마크 아이콘 클릭')
 
-    //   if(star == false) {
-    //     impt.classList.remove('fa-regular');
-    //     impt.classList.add('fa-solid');
-    //     star = true;
-    //   } else if( star == true) {
-    //     impt.classList.remove('fa-solid');
-    //     impt.classList.add('fa-regular');
-    //     star = false;
-    //   }
-    // });
+    //안읽음 숫자
+    const cntNotRead = document.querySelector('.count-notRead');
+    //fa-envelope 개수
+    let cntNR = (document.getElementsByClassName('fa-envelope').length);
+
+    (function count_notRead(){
+      return cntNotRead.textContent = (cntNR);
+    }) ();
+    
+    const icon_read_1 = document.querySelector('.icon-read_1');
+    icon_read_1.addEventListener('click', function(){
+      if(icon_read_1.classList.contains('fa-envelope')) {
+        cntNR++;
+      } else {
+        cntNR--;
+      }
+    return cntNotRead.textContent = (cntNR);
+    });
+
+    const icon_read_2 = document.querySelector('.icon-read_2');
+    icon_read_2.addEventListener('click', function(){
+      if(icon_read_2.classList.contains('fa-envelope')) {
+        cntNR++;
+      } else {
+        cntNR--;
+      }
+    return cntNotRead.textContent = (cntNR);
+    });
+
+    const icon_read_3 = document.querySelector('.icon-read_3');
+    icon_read_3.addEventListener('click', function(){
+      if(icon_read_3.classList.contains('fa-envelope')) {
+        cntNR++;
+      } else {
+        cntNR--;
+      }
+    return cntNotRead.textContent = (cntNR);
+    });
+    
+
 
   </script>
 </body>
