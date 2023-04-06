@@ -100,8 +100,8 @@
     }
     .search-area > i {
       padding: 0;
+      cursor: pointer;
     }
-    .search-area > i:hover { cursor: pointer; }
     .input-mail-search {
       width: 150px; height: 30px;
       font-size: 1rem;
@@ -129,8 +129,8 @@
     .toolbar > ul > li > i {
       margin: 0; padding: 0px 0px 0px 7px;
       font-size: 1rem;
+      cursor: pointer;
     }
-    .toolbar > ul > li > i:hover { cursor: pointer; }
     .toolbar > ul > li > button {
       background-color: #ffffff00;
       border-style: none;
@@ -152,8 +152,8 @@
     .mail-list > ul > li {
       display: flex;
       align-items: baseline;
+      cursor: pointer;
     }
-    .mail-list > ul > li:hover { cursor: pointer; }
     .mail-list > ul > li > div:hover span {
       border-bottom:1px solid black;
     }
@@ -188,8 +188,8 @@
     .mail-page > i {
       margin: 5px; padding: 5px;
       font-size: 1.3rem;
+      cursor: pointer;
     }
-    .mail-page > i:hover { cursor: pointer; }
     .mail-page > ol {
       width: 200px;
       padding: 0px 5px;
@@ -391,7 +391,7 @@
         <div class="mail-main">
           <div class="toolbar">
             <ul>
-              <li class="li-checkbox"><input type="checkbox">
+              <li class="li-checkbox"><input type="checkbox"  onchange="checkAll(this)">
                 <i class="fa-solid fa-sort-down"></i>
               </li>
               <li><button>읽음</button></li>
@@ -533,6 +533,14 @@
     });
     
 
+    const checkAll = (target) => {
+    const isChecked = target.checked;
+
+    document.querySelectorAll(`.mail-list ul li input`)
+    .forEach(el => {
+      el.checked = isChecked;
+      });
+    }
 
   </script>
 </body>

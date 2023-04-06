@@ -19,7 +19,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.box-search > i:hover { cursor: pointer; }
+.box-search > i { cursor: pointer; }
 .input-search {
   width: 400px; height: 80%;
   font-size: 1rem;
@@ -78,14 +78,14 @@
 }
 .button-menuBar {
   height: 100%;
-  /* min-width: 100px; */
+  width: 122px;
   font-size: 1rem;
   font-weight: bold;
   border-style: none;
   background-color: #ffffff00;
+  padding: 0px 15px;
+  cursor: pointer;
 }
-.button-menuBar:hover { cursor: pointer; }
-.li-menuBar { margin: 0px 30px; }
 .li-line {
   width: 1px; height: 80%;
   background-color: #ffeeac;
@@ -103,7 +103,7 @@
 }
 
 .menuBar-hidden {
-  width: 150px;
+  width: 122px;
   background-color: #FFFFFF;
   font-weight: bold;
   border: 3px solid black;
