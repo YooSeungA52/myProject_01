@@ -10,24 +10,145 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="background.css">
   <style>
-    .box-calendar {
+    .calender-container {
+      height: 713px;
+      margin-top: 15px;
+      margin-bottom: 27px;
       display: flex;
       justify-content: center;
-      margin-top: 30px;
     }
-    table { border: 3px solid black; border-collapse: collapse; }
-    th, td { border: 1px solid black; }
-    .schedule-title{
-      margin: 5px 0px;
+    .calender-rap {
+      max-width: 824px;
+      padding: 0 1.4rem;
+    }
+    .calender-dateHead { margin-bottom: .4rem; }
+    .calender-dateHead div {
+      width: 107px;
+      background: #ffffff;
+      border-bottom: 1px solid black;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+    /* .calender-dateHead div.bgc-red { background-color: orangered; }
+    .calender-dateHead div.bgc-red { background-color:tomato; }
+    .calender-dateHead div.bgc-red { background-color:#ff4736; }
+    .calender-dateHead div.bgc-red { background-color:#ff6c5e; } */
+    .calender-dateHead div.bgc-red { background-color:#ff8e83; }
+    /* .calender-dateHead div.bgc-blue { background-color:dodgerblue; }
+    .calender-dateHead div.bgc-blue { background-color:#43b7ff; }
+    .calender-dateHead div.bgc-blue { background-color:#58bfff; } */
+    .calender-dateHead div.bgc-blue { background-color:lightskyblue; }
+    .calender-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 5px;
+    }
+    .calender-grid div {
+      padding: .6rem;
+      font-size: .9rem;
+      cursor: pointer;
+    }
+    .calender-dateBoard div {
+      width: 107px; height: 95px;
+      color: #222;
+      font-weight: bold;
+      min-height: 6rem;
+      padding: .6rem;
+      border-radius: .6rem;
+      border: 1px solid #eee;
+    }
+    .noColor { background: #eee; }
+    .noColor:hover {
+      cursor: default;
+    }
+    .calender-header {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .calender-btn {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #000;
+      border-width: 3px 3px 0 0;
+      cursor: pointer;
+    }
+    .calender-prevDay { transform: rotate(-135deg); }
+    .calender-nextDay { transform: rotate(45deg); }
+    .calender-dateBoard div p {
+      font-weight: normal;
+      margin-top: .2rem;
+      width: 90px;              /* width 필수 지정 */
+      overflow: hidden;         /* width 값에 벗어나면 숨김 */
+      text-overflow: ellipsis;  /* 점처리 */
+      white-space: nowrap;      /* 글씨가 길어도 아래로 떨어지지 않게 처리 */
+    }
+
+    .line-center {
+      width: 1px; height: 90%;
+      background-color: lightgray;
+      margin: auto 0;
+    }
+
+    /* 스케줄 */
+    .schedule {
+      /* width: 376px; */
+      padding: 0 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .schedule h2 {
+      padding: 16px 32px;
+    }
+    .schedule-list ul {
+      flex-direction: column;
+    }
+    .schedule-list ul .li-line-bottom {
+      width: 100%; height: 1px;
+      background-color: gray;
+      margin: 5px auto;
+    }
+    .schedule-list ul li {
+      margin: 10px 5px;
+      padding: 0px 5px;
+    }
+    .schedule-list ul li .schedule-list-date {
+      font-weight: bold;
+    }
+    .schedule-list ul li .schedule-list-title {
+      margin-bottom: 5px;
+    }
+    .schedule-list ul li .content {
+      font-size: 0.9rem;
+    }
+
+    .schedule-list-memo {
+      /* border: 1px solid #e0e0e0; */
+      border: 1px solid #c4c4c4;
+      border-radius: 0.6rem;
+      margin-top: 15px;
+      padding: 9.6px;
+    }
+    .memo-title {
+      margin-bottom: 10px;
+      border-bottom: 1px solid black;
+      font-weight: bold;
+    }
+    .schedule-list-memo ul li {
+      margin: 2px 0px;
     }
     input.checkbox:checked + span {
       color:gray;
       font-style: italic;
     }
 
-    .box-board {
+    /* .box-board {
       display: flex;
       justify-content: space-evenly; }
     .notice, .teamBoard {
@@ -44,8 +165,6 @@
     .notice > ul > li, .teamBoard > ul > li {
       margin-top: 5px;
     }
-    /* .notice-li-line-bottom, .teamBoard-li-line-bottom */
-    /* .li-line-bottom */
     .notice > a > h2, .teamBoard > a > h2 {
       padding: 10px 0px;
       border-bottom: 3px solid black;
@@ -56,214 +175,75 @@
     .fa-ellipsis-vertical {
       color: gray;
       font-size: 1rem;
-    }
+    } */
   </style>
 </head>
 <body>
   <div class="container">
-    <div id="header">
-      <a href="main.html"><img class="logo" src="logo_duck.png"></a>
-      <img class="company" src="http://www.human.or.kr/images/h_logo.png">
-      <div class="box-search">
-        <input class="input-search" type="text" placeholder="메뉴를 검색하세요."><i class="fa-brands fa-sistrix"></i>
-      </div>
-      <div class="box-icon">
-        <ul>
-          <li class="li-header">
-            <i class="fa-solid fa-user"></i>
-            <div class="header-hidden">
-              <div class="employee-info">
-                <p class="employee-name">오오리 <span class="employee-idNumber">00001</span></p>
-                <p class="employee-department">○○부 <span class="employee-extensionNumber">(5252)</span></p>
-              </div>
-              <div class="li-line-bottom"></div>
-              <p><a href="#">출퇴근 확인</a></p>
-              <div class="li-line-bottom"></div>
-              <p><a href="#">자리비움</a></p>
-              <div class="li-line-bottom"></div>
-              <p><a href="login.html">로그아웃</a></p>
-            </div>
-          </li>
-          <li class="li-header">
-            <i class="fa-solid fa-bars"></i>
-            <div class="header-hidden">
-              <p><a href="#">고객센터</a></p>
-              <div class="li-line-bottom"></div>
-              <p><a href="#">FAQ</a></p>
-              <div class="li-line-bottom"></div>
-              <p><a href="#">상담요청</a></p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="menuBar">
-      <ul>
-        <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">공지사항</button></a>
-          <!-- <div class="menuBar-hidden">
-            <p>공지사항1</p>
-            <div class="li-line-bottom"></div>
-            <p>공지사항1</p>
-          </div> -->
-        </li>
-        <div class="li-line"></div>
-        <li class="li-menuBar">
-        <a href="#"><button class="button-menuBar">인사관리</button></a>
-        <div class="menuBar-hidden">
-          <p><a href="#">조직도</a></p>
-          <div class="li-line-bottom"></div>
-          <p><a href="#">사원 정보</a></p>
-          <div class="li-line-bottom"></div>
-          <p><a href="#">증명서</a></p>
-        </div>
-      </li>
-        <div class="li-line"></div>
-        <li class="li-menuBar">
-          <a href="mail.html"><button class="button-menuBar">메일</button></a>
-          <div class="menuBar-hidden">
-            <p><a href="#">전체 메일</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">받은메일함</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">보낸메일함</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">임시보관함</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">내게쓴메일함</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">주소록</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">휴지통</a></p>
-          </div>
-        </li>
-        <div class="li-line"></div>
-        <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">일정관리</button></a>
-          <!-- <div class="menuBar-hidden">
-            <p>일정 추가</p>
-            <div class="li-line-bottom"></div>
-            <p>일정 공유</p>
-          </div> -->
-        </li>
-        <div class="li-line"></div>
-        <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">근태관리</button></a>
-          <div class="menuBar-hidden">
-            <p><a href="#">근태 현황</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">근태 신청</a></p>
-          </div>
-        </li>
-        <div class="li-line"></div>
-        <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">급여관리</button></a>
-          <div class="menuBar-hidden">
-            <p><a href="#">급여계산</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">급여명세서</a></p>
-          </div>
-        </li>
-        <div class="li-line"></div>
-        <li class="li-menuBar">
-          <a href="#"><button class="button-menuBar">전자결재</button></a>
-          <div class="menuBar-hidden">
-            <p><a href="#">결재사항</a></p>
-            <div class="li-line-bottom"></div>
-            <p><a href="#">결재작성</a></p>
-          </div>
-        </li>
-          <div class="li-line"></div>
-          <li class="li-menuBar">
-            <a href="#"><button class="button-menuBar">게시판</button></a>
-            <div class="menuBar-hidden">
-              <p><a href="#">게시판</a></p>
-              <div class="li-line-bottom"></div>
-              <p><a href="#">자료실</a></p>
-            </div>
-        </li>
-      </ul>
-    </div>
-    <!-- <div class="box-calendar">
-      <table class="calendar" width="450" height="250">
-        <caption>
-          <h2>SCHEDULE 을 넣을지 캘린더를 넣을지</h2>
-          <div class="schedule-title">
-            <span><span class="color-green">■</span> - ○○부 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
-          </div>
-        </caption>
-        <colgroup>
-          <col width="17%">
-          <col width="83%">
-        </colgroup>
-        <tr>
-          <th scope="col">3월 29일</th>
-          <td scope="col">　• header, menuBar 완성</td>
-        </tr>
-        <tr>
-          <th>3월 30일</th>
-          <td>　• signUp, login 페이지 완성
-            <br>　• main 페이지 작업 중
-          </td>
-        </tr>
-        <tr>
-          <th>3월 31일</th>
-          <td>　• main 페이지 완성을 목표로</td>
-        </tr>
-        <tr>
-          <th>4월 1일</th>
-          <td>　• 전자결재 페이지 작업 예정</td>
-        </tr>
-        <tr>
-          <th>메모</th>
-          <td>　<input class="checkbox" type="checkbox"><span> 다이어그램 보완 필요</span>
-            <br>　<input class="checkbox" type="checkbox"><span> 노션 업데이트</span>
-            <br>　<input class="checkbox" type="checkbox"><span> 로고에 글자 추가</span>
-          </td>
-        </tr>
-      </table>
-      <table width="450" height="250">
-        <caption>
-          <h2>SCHEDULE 을 넣을지 캘린더를 넣을지</h2>
-          <div class="schedule-title">
-            <span><span class="color-green">■</span> - ○○부 공동일정</span><span><span class="color-blue">■</span> - 개인일정</span>
-          </div>
-        </caption>
-        <colgroup>
-          <col width="17%">
-          <col width="83%">
-        </colgroup>
-        <tr>
-          <th scope="col">3월 29일</th>
-          <td scope="col">　• header, menuBar 완성</td>
-        </tr>
-        <tr>
-          <th>3월 30일</th>
-          <td>　• signUp, login 페이지 완성
-            <br>　• main 페이지 작업 중
-          </td>
-        </tr>
-        <tr>
-          <th>3월 31일</th>
-          <td>　• main 페이지 완성을 목표로</td>
-        </tr>
-        <tr>
-          <th>4월 1일</th>
-          <td>　• 전자결재 페이지 작업 예정</td>
-        </tr>
-        <tr>
-          <th>메모</th>
-          <td>　<input class="checkbox" type="checkbox"><span> 다이어그램 보완 필요</span>
-            <br>　<input class="checkbox" type="checkbox"><span> 노션 업데이트</span>
-            <br>　<input class="checkbox" type="checkbox"><span> 로고에 글자 추가</span>
-          </td>
-        </tr>
-      </table>
-    </div> -->
-    
-    <div class="testArea" style="width: 1000px; height: 500px; border: 3px solid black; margin: 30px auto;"><!--완성하고 여백 비교 후 box-board margin-top 없애도 될 듯--></div>
+    <div id="header"></div>
+    <div id="menuBar"></div>
 
-    <div class="box-board">
+    <!-- style="width: 1000px; height: 500px; border: 3px solid black; margin: 30px auto;" -->
+    <div class="calender-container">
+      <div class="calender-rap">
+        <div class="calender-header">
+          <div class="calender-btn calender-prevDay"></div>
+          <h2 class="calender-dateTitle"></h2>
+          <div class="calender-btn calender-nextDay"></div>
+        </div>
+        <div class="calender-grid calender-dateHead">
+          <div class="bgc-red">일</div>
+          <div>월</div>
+          <div>화</div>
+          <div>수</div>
+          <div>목</div>
+          <div>금</div>
+          <div class="bgc-blue">토</div>
+        </div>
+        <div class="calender-grid calender-dateBoard"></div>
+      </div>
+      <div class="line-center"></div>
+      <div class="schedule">
+        <h2>schedule list</h2>
+        <div class="schedule-list">
+          <ul>
+            <li><p class="schedule-list-date">04-03</p>
+              <p class="schedule-list-title">header, menuBar form 작업</p>
+            <div class="content">- 메뉴바 드롭다운메뉴 만들기</div>
+          </li>
+            <div class="li-line-bottom"></div>
+            <li><p class="schedule-list-date">04-05</p>
+              <p class="schedule-list-title">메일 페이지 작업</p>
+            </li>
+            <div class="li-line-bottom"></div>
+            <li><p class="schedule-list-date">04-07</p>
+              <p class="schedule-list-title">완성 목표일</p>
+              <div class="content">- 일단 완성 후 보완하기</div>
+            </li>
+            <div class="li-line-bottom"></div>
+            <li><p class="schedule-list-date">04-10</p>
+              <p class="schedule-list-title">1차 프로젝트 제출</p>
+              <div class="content">- ~09:30 제출 및 취합</div>
+              <div class="content">- ~14:30 프로젝트 발표</div>
+            </li>
+            <div class="li-line-bottom"></div>
+            <li><p class="schedule-list-date">04-11</p>
+              <p class="schedule-list-title">오라클-DB</p>
+            </li>
+          </ul>
+          <div class="schedule-list-memo">
+            <div class="memo-title">memo</div>
+            <ul>
+              <li><input class="checkbox" type="checkbox"><span> 다이어그램 보완 필요</span></li>
+              <li><input class="checkbox" type="checkbox"><span> 노션 업데이트</span></li>
+              <li><input class="checkbox" type="checkbox"><span> 로고에 글자 추가</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="box-board">
       <div class="notice">
         <a href="#"><h2>공지사항</h2></a>
         <ul>
@@ -292,8 +272,103 @@
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </ul>
       </div>
-    </div>
+    </div> -->
 
   </div>
+  <div id="footer"></div>
+  <script>
+    //html 불러오기(header, menuBar)
+    async function fetchHtmlAsText(url) {
+      return await (await fetch(url)).text();
+    }
+    async function importPage(target) {
+      document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+    }
+    importPage('header');
+    importPage('menuBar');
+    importPage('footer');
+
+
+    //임시 데이터
+    const data = [
+      { date: '2023-04-03', content: 'header, menuBar form 작업' },
+      { date: '2023-04-05', content: '메일 페이지 작업' },
+      { date: '2023-04-11', content: '오라클-DB' },
+      { date: '2023-04-07', content: '완성 목표일' },
+      { date: '2023-04-10', content: '1차 프로젝트 제출' },
+    ];
+
+    //데이터 가공
+    const calendarList = data.reduce(
+      (acc, v) =>
+        ({ ...acc, [v.date]: [...(acc[v.date] || []), v.content] })
+      , {}
+    );
+
+    //pad method
+    Number.prototype.pad = function () {
+      return this > 9 ? this : '0' + this;
+    }
+
+    //달력 생성
+    const makeCalendar = (date) => {
+      //현재의 년도와 월 받아오기
+      const currentYear = new Date(date).getFullYear();
+      const currentMonth = new Date(date).getMonth() + 1;
+
+      //한달전의 마지막 요일
+      const firstDay = new Date(date.setDate(1)).getDay();
+      //현재 월의 마지막 날 구하기
+      const lastDay = new Date(currentYear, currentMonth, 0).getDate();
+
+      //남은 박스만큼 다음달 날짜 표시
+      const limitDay = firstDay + lastDay;
+      const nextDay = Math.ceil(limitDay / 7) * 7;
+
+      let htmlDummy = '';
+
+      //한달전 날짜 표시하기
+      for (let i = 0; i < firstDay; i++) {
+        htmlDummy += `<div class="noColor"></div>`;
+      }
+
+      //이번달 날짜 표시하기
+      for (let i = 1; i <= lastDay; i++) {
+        const date = `${currentYear}-${currentMonth.pad()}-${i.pad()}`
+
+        htmlDummy += `
+        <div>
+          ${i}
+          <p>
+            ${calendarList[date]?.join('</p><p>') || ''}
+          </p>
+        </div>
+      `;
+      }
+
+      //다음달 날짜 표시하기
+      for (let i = limitDay; i < nextDay; i++) {
+        htmlDummy += `<div class="noColor"></div>`;
+      }
+
+      document.querySelector(`.calender-dateBoard`).innerHTML = htmlDummy;
+      document.querySelector(`.calender-dateTitle`).innerText = `${currentYear}년 ${currentMonth}월`;
+    }
+
+    //오늘 날짜
+    const date = new Date();
+
+    makeCalendar(date);
+
+    //이전달 이동
+    document.querySelector(`.calender-prevDay`).onclick = () => {
+      makeCalendar(new Date(date.setMonth(date.getMonth() - 1)));
+    }
+
+    //다음달 이동
+    document.querySelector(`.calender-nextDay`).onclick = () => {
+      makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
+    }
+</script>
 </body>
 </html>

@@ -137,3 +137,11 @@ i { margin: 5px; padding: 5px; font-size: 1.7rem; }
 /* table, th, td { border: 1px solid black; border-collapse: collapse; } */
 .color-green { color: green; }
 .color-blue { color: blue; }
+
+#footer {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}

@@ -41,6 +41,14 @@
     a { color: navy; text-decoration: none; }
     /* .color-black { color: black; } */
 
+    #footer {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
     </style>
 </head>
 <body>
@@ -68,5 +76,16 @@
       <a href="signUp.html"><p class="link-signUp">아직 회원이 아니신가요?</p></a> -->
     </div>
   </div>
+  <div id="footer"></div>
+
+  <script>
+    async function fetchHtmlAsText(url) {
+      return await (await fetch(url)).text();
+    }
+    async function importPage(target) {
+      document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+    }
+    importPage('footer');
+  </script>
 </body>
 </html>

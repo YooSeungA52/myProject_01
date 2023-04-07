@@ -11,7 +11,7 @@
     #main {
       width: 700px; height: 915px;
       border: 3px solid black; border-radius: 30px;
-      margin: 50px auto;
+      margin: 20px auto;
       padding: 0px 60px;
       text-align: center;
     }
@@ -59,6 +59,13 @@
       margin: 30px auto;
     }
     a { text-decoration: none; }
+    #footer {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
     </style>
 </head>
 <body>
@@ -117,5 +124,16 @@
       </form>
     </div>
   </div>
+  <div id="footer"></div>
+
+  <script>
+    async function fetchHtmlAsText(url) {
+      return await (await fetch(url)).text();
+    }
+    async function importPage(target) {
+      document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+    }
+    importPage('footer');
+  </script>
 </body>
 </html>
