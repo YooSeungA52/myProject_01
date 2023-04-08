@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디/비밀번호 찾기</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .container {
+      width: 700px; height: 620px;
+      margin: 0 auto;
+    }
+    .logo { width: 200px; height: 100px; margin: 20px; }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .tab_menu {
+      width: 500px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    
+    .tab {
+      width: 100%;
+      display: table;
+      table-layout: fixed;
+    }
+    .tab_item {
+      background-color: #EEEEEE;
+      border-bottom: 3px solid black;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: bold;
+      display : table-cell;
+      cursor: pointer;
+    }
+    .tab_id {
+      border-right: none;
+      border-top-left-radius: 15px;
+    }
+    .tab_pw {
+      border-top-right-radius: 15px;
+    }
+    
+    .tab_inner_wrap {
+      height: 300px;
+      background-color: #FFFFFF;
+      border: 3px solid black;
+      border-top: none;
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      text-align: center;
+    }
+    .tab_inner {
+      padding: 25px 30px;
+      display: none;
+    }
+    .tab_item.active {
+      background-color: #FFFFFF;
+      border: 3px solid black;
+      border-bottom: none;
+    }
+    .tab_inner.active { display: block; }
+
+    li {
+      list-style: none;
+      margin: 9px;
+      display: flex;
+    }
+
+    input[type=radio] {
+      border: 0px;
+      width: 10%;
+      height: 1.8em;
+    }
+    .line-bottom {
+      width: 93%; height: 1px;
+      background-color: lightgray;
+      margin: 0px auto;
+    }
+    input[type=text] {
+      width: 350px; height: 40px;
+      font-size: 1rem;
+      margin-bottom: 50px;
+      padding-left: 5px;
+    }
+    .input-next {
+      width: 80px; height: 50px;
+      background-color: #FFC93C;
+      border: 3px solid black;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #footer {
+      width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tab_menu">
+      <img class="logo" src="logo_duck.png">
+      <h1>아이디 / 비밀번호 찾기</h1>
+      <ul class="tab">
+        <li class="tab_item tab_id active">아이디</li>
+        <li class="tab_item tab_pw">비밀번호</li>
+        <!-- <li class="tab_item">탭메뉴3</li> -->
+      </ul>
+      <div class="tab_inner_wrap">
+        <div class="tab_inner active">
+          <ol>
+            <label><li><input type="radio" name="choice">휴대폰으로 본인인증</li></label>
+            <div class="line-bottom"></div>
+            <label><li><input type="radio" name="choice">간편 본인인증으로 찾기</li></label>
+            <div class="line-bottom"></div>
+            <label><li><input type="radio" name="choice">이름 / 전화번호로 찾기</li></label>
+            <div class="line-bottom"></div>
+            <label><li><input type="radio" name="choice">이름 / 이메일로 찾기</li></label>
+          </ol>
+        </div>
+        <div class="tab_inner">
+          <label><p style="margin: 30px 0px;">비밀번호를 찾고자하는 아이디를 입력해 주세요.</p>
+          <input type="text" placeholder="아이디 입력"></label>
+        </div>
+        <!-- <div class="tab_inner">탭 컨텐츠입니다3.</div> -->
+        <input class="input-next" type="submit" value="다음"></input>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <script>
+        async function fetchHtmlAsText(url) {
+      return await (await fetch(url)).text();
+    }
+    async function importPage(target) {
+      document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
+    }
+    importPage('footer');
+
+
+    const tabItem = document.querySelectorAll('.tab_item')
+    const tabInner = document.querySelectorAll('.tab_inner')
+
+    tabItem.forEach((tab, idx)=> {
+      tab.addEventListener('click', function(){
+        tabInner.forEach((inner)=> {
+            inner.classList.remove('active')
+        })
+
+        tabItem.forEach((item)=> {
+            item.classList.remove('active')
+        })
+
+        tabItem[idx].classList.add('active')
+        tabInner[idx].classList.add('active')
+      })
+    })
+  </script>
+</body>
+</html>

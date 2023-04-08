@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>자리비움 페이지</title>
+  <title>자리비움</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     .container { width: 100%; height: 100%; }
     #main {
-      width: 600px; height: 400px;
+      width: 600px; height: 430px;
       border: 3px solid black; border-radius: 30px;
       margin: 150px auto;
+      margin-bottom: 50px;
       padding: 0px 140px;
       text-align: center;
     }
@@ -26,7 +27,7 @@
       margin: 10px 0px;
       padding-left: 5px;
     }
-    .box-login {
+    .back {
       width: 300px; height: 50px;
       font-size: 1.2rem; font-weight: bolder;
       border: 3px solid black; border-radius: 30px;
@@ -36,10 +37,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
-    /* .link-signUp { font-weight: bold; } */
-    a { color: navy; text-decoration: none; }
-    /* .color-black { color: black; } */
 
     #footer {
       width: 1200px;
@@ -48,32 +47,23 @@
       font-size: 0.9rem;
       font-weight: bold;
     }
-
     </style>
 </head>
 <body>
   <div class="container">
     <div id="main">
       <img class="logo" src="logo_duck.png">
-      <!-- <h1>로그인</h1> -->
+      <h1>자리비움</h1>
       <form>
         <div class="box-info">
-          <!-- <label>
-            아이디
-            <input class="input-info" type="text" placeholder="아이디 입력" style="margin-bottom: 20px;">
-          </label> -->
           <label>
             비밀번호
-            <input class="input-info" type="password" placeholder="비밀번호 입력">
+            <input class="input-info" type="password" placeholder="비밀번호 입력" required>
           </label>
           <br>
-          <!-- <input type="checkbox"> 아이디 저장 -->
         </div>
-        <a href="main.html"><div class="box-login">로그인하기</div></a>
+        <button id="btnLogIn" class="back" type="submit">돌아가기</button>
       </form>
-      <!-- <a href="#"><p class="color-black">아이디 / 비밀번호 찾기</p></a>
-      <br>
-      <a href="signUp.html"><p class="link-signUp">아직 회원이 아니신가요?</p></a> -->
     </div>
   </div>
   <div id="footer"></div>

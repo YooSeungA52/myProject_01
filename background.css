@@ -55,6 +55,7 @@
 }
 .header-hidden > p:hover {
   background-color: rgb(230, 230, 230);
+  cursor: pointer;
 }
 .header-hidden > .employee-info { padding: 10px; }
 .header-hidden > .employee-info > p > .employee-idNumber {
@@ -124,6 +125,7 @@
 }
 .menuBar-hidden > p:hover {
   background-color: rgb(230, 230, 230);
+  cursor: pointer;
 }
 
 .title-line-bottom {

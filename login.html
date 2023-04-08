@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 페이지</title>
+  <title>로그인</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    .container { width: 100%; height: 100%; }
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+    }
     #main {
-      width: 600px; height: 600px;
+      width: 600px; height: 700px;
       border: 3px solid black; border-radius: 30px;
       margin: 100px auto;
       padding: 0px 140px;
@@ -26,7 +29,11 @@
       margin: 10px 0px;
       padding-left: 5px;
     }
-    .box-login {
+    .box-chb {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .input-join {
       width: 300px; height: 50px;
       font-size: 1.2rem; font-weight: bolder;
       border: 3px solid black; border-radius: 30px;
@@ -36,6 +43,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+    }
+
+    .button-find {
+      background-color: #FFFFFF;
+      border-style: none;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      cursor: pointer;
     }
     .link-signUp { font-weight: bold; }
     a { color: navy; text-decoration: none; }
@@ -55,23 +71,34 @@
     <div id="main">
       <img class="logo" src="logo_duck.png">
       <h1>로그인</h1>
-      <form>
+      <form action="main.html">
         <div class="box-info">
           <label>
+            회사코드
+            <input id="inputCPcode" class="input-info" type="text" placeholder="회사코드 입력" style="margin-bottom: 20px;" autofocus required>
+          </label>
+          <label>
             아이디
-            <input class="input-info" type="text" placeholder="아이디 입력" style="margin-bottom: 20px;">
+            <input id="inputId" class="input-info" type="text" placeholder="아이디 입력" style="margin-bottom: 20px;" required>
           </label>
           <label>
             비밀번호
-            <input class="input-info" type="password" placeholder="비밀번호 입력">
+            <input id="inputPw" class="input-info" type="password" placeholder="비밀번호 입력" required>
           </label>
           <br>
-          <input type="checkbox"> 아이디 저장
+          <div class="box-chb">
+            <label>
+              <input id="checkCodeSave" type="checkbox"><span> 회사코드 저장</span>
+            </label>
+            <label>
+              <input id="checkIdSave" type="checkbox"><span> 아이디 저장</span>
+            </label>
+          </div>
         </div>
-        <a href="main.html"><div class="box-login">로그인하기</div></a>
+        <input id="btnLogIn" class="input-join" type="submit" value="로그인하기" style="display: none;"></input>
+        <button id="btnLogIn" class="input-join" type="submit">로그인하기</button>
       </form>
-      <a href="#"><p class="color-black">아이디 / 비밀번호 찾기</p></a>
-      <br>
+      <button class="button-find" onclick="openNew()">아이디 / 비밀번호 찾기</button>
       <a href="signUp.html"><p class="link-signUp">아직 회원이 아니신가요?</p></a>
     </div>
   </div>
@@ -85,6 +112,58 @@
       document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
     }
     importPage('footer');
+
+    window.onload = ()=> {
+      
+      const btn = document.getElementById('btnLogIn');
+      // const inputCPcode = document.getElementById('inputCPcode');
+      const inputId = document.getElementById('inputId');
+      const inputPw = document.getElementById('inputPw');
+      // const inputChk = document.getElementById('checkCodeSave');
+      const inputChk = document.getElementById('checkIdSave');
+      
+      // let companyCode_LocalStorage = localStorage.getItem('companyCode');
+      let loginId_LocalStorage = localStorage.getItem('logInId');
+      let loginPw_LocalStorage = localStorage.getItem('logInPw');
+      
+      // localStorage.setItem('logInPw', 'winapw');
+
+      btn.addEventListener('click', function () {
+        if (inputChk.checked == true) {
+          localStorage.setItem('logInId', inputId.value);
+          localStorage.setItem('logInPw', inputPw.value);
+          inputPw.value = '';
+          inputId.value = localStorage.getItem('logInId');
+        } else {
+          localStorage.setItem('logInId', '');
+          localStorage.setItem('logInPw', '');
+          inputId.value = '';
+          inputPw.value = '';
+        }
+        
+        // if (inputPw.value == localStorage.getItem('logInPw')) {
+        //   alert('로그인에 성공하였습니다.');
+        //   location='main.html';
+        // } else {
+        //   alert('로그인에 실패하였습니다.');
+        // }
+      });
+
+      if ('logInId' != '') {
+        inputId.value = localStorage.getItem('logInId');
+        inputChk.setAttribute('checked', '');
+      } else {
+        inputId.value = '';
+      }
+
+      if (inputId.value == '') {
+        inputChk.removeAttribute('checked');
+      }
+
+    }
+    function openNew(){
+      window.open('find.html', 'title', 'width=800, height=800, left=200, top=200');
+    }
   </script>
 </body>
 </html>
